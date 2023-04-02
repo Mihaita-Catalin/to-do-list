@@ -1,0 +1,24 @@
+name: todo-list
+region: us-east-1
+cloudProvider: aws
+sdk:
+  language: js
+  options:
+    runtime: browser
+  path: ../client/src/sdk
+frontend:
+  path: ../client/build
+  subdomain: aquamarine-cautious-guineafowl
+classes:
+  - path: ./task.js
+    type: jsonrpc
+    methods: []
+  - path: ./user.js
+    type: jsonrpc
+    methods: []
+  - path: ./cron.js
+    type: jsonrpc
+    methods:
+      - name: deleteAllData
+        type: cron
+        cronString: 0 12 * * *
